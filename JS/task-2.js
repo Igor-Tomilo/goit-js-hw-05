@@ -1,31 +1,23 @@
-// Исправь ошибки которые будут в консоли, чтобы скрипт заработал.
+// Задание 2
+// Напиши класс User для создания пользователя со следующим свойствами:
 
-const inventory = {
-  items: ['Knife', 'Gas mask'],
-  add(itemName) {
-    console.log(`Adding ${itemName} to inventory`);
-    this.items.push(itemName);
-  },
-  remove(itemName) {
-    console.log(`Removing ${itemName} from inventory`);
+// name - строка
+// age - число
+// followers - число
+// Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
 
-    this.items = this.items.filter(item => item !== itemName);
-  },
-};
+const mango = new User({
+  name: 'Mango',
+  age: 2,
+  followers: 20,
+});
 
-const invokeInventoryAction = function(itemName, action) {
-  console.log(`Invoking action on ${itemName}`);
-  action(itemName);
-};
+mango.getInfo(); // User Mango is 2 years old and has 20 followers
 
-invokeInventoryAction('Medkit', inventory.add);
-// Invoking action on Medkit
-// Adding Medkit to inventory
+const poly = new User({
+  name: 'Poly',
+  age: 3,
+  followers: 17,
+});
 
-console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
-
-invokeInventoryAction('Gas mask', inventory.remove);
-// Invoking action on Gas mask
-// Removing Gas mask from inventory
-
-console.log(inventory.items); // ['Knife', 'Medkit']
+poly.getInfo(); // User Poly is 3 years old and has 17 followers
